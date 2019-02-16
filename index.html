@@ -14,13 +14,27 @@
 <div id="app">
     <p>Hello world, {{ greet }}</p>
     <input type="text" v-model="greet">
+
+    <ul>
+        <li v-for="book in books"><em>{{ book. author }}</em> {{ book.title }}</li>
+    </ul>
 </div>
 
 <script>
     var app = new Vue({
         el: '#app',
         data: {
-            greet: '#TechTalkSE'
+            greet: '#TechTalkSE',
+            books: [
+                {
+                    author: 'S. Lem',
+                    title: 'Solaris'
+                },
+                {
+                    author: 'P. K. Dick',
+                    title: 'Blade Runner'
+                }
+            ]
         }
     });
 </script>
