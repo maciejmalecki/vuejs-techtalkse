@@ -10,5 +10,18 @@
 <body>
 <h1>Yet another JS framework</h1>
 <p>Vue.js: it's easier than you think...</p>
+
+<div id="app">
+    <p>Hello world, {{ greet }}</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            greet: '#TechTalkSE'
+        }
+    });
+</script>
 </body>
 </html>
