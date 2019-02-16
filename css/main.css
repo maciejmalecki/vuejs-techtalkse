@@ -1,0 +1,70 @@
+body {
+    font-family: 'Open Sans';
+    background-color: white;
+    color: black;
+    font-size: 28px;
+    padding: 5px 25px 5px 25px;
+}
+button {
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: lightgray;
+    border-width: 0px;
+}
+input {
+    padding: 5px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+input:focus {
+    background-color: white;
+}
+p {
+    display: block;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+label {
+    display: block;
+}
+ul.tabs {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+p.error {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+}
+a,a:visited {
+    color: black;
+}
+ul.tabs>li {
+    display: inline;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 3px solid #f2f2f2;
+    padding: 5px 10px 0px 10px;
+}
+ul.tabs>li>a {
+    text-decoration: none;
+}
+ul.tabs>li.selected {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+}
+ul.tabs>li.selected>a,ul.tabs>li.selected>a:visited{
+    color: black;
+}
+div.tab {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
