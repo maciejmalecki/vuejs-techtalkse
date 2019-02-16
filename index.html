@@ -26,6 +26,7 @@
     <p>
         <button v-on:click="addBook">Add</button>
     </p>
+    <p class="error" v-if="showError">Please provide some data.</p>
 
     <ul>
         <li v-for="book in books"><em>{{ book. author }}</em> {{ book.title }}</li>
@@ -37,6 +38,7 @@
         el: '#app',
         data: {
             greet: '#TechTalkSE',
+            showError: false,
             newBook: {
                 author: '',
                 title: ''
@@ -54,9 +56,14 @@
         },
         methods: {
             addBook: function() {
-                var obj = {};
-                Object.assign(obj, this.newBook);
-                this.books.push(obj);
+                if (this.newBook.author && this.newBook.title) {
+                    this.showError = false;
+                    var obj = {};
+                    Object.assign(obj, this.newBook);
+                    this.books.push(obj);
+                } else {
+                    this.showError = true;
+                }
             }
         }
     });
