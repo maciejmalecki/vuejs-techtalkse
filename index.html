@@ -13,25 +13,32 @@
 <p>Vue.js: it's easier than you think...</p>
 
 <div id="app">
-    <p>Hello world, {{ greet }}</p>
-    <input type="text" v-model="greet">
-
-    <p>
-        <label for="author">Author</label>
-        <input type="text" id="author" v-model="newBook.author">
-    </p>
-    <p>
-        <label for="title">Title</label>
-        <input type="text" id="title" v-model="newBook.title">
-    </p>
-    <p>
-        <button v-on:click="addBook">Add</button>
-    </p>
-    <p class="error" v-if="showError">Please provide some data.</p>
-
-    <ul>
-        <li v-for="book in books"><em>{{ book. author }}</em> {{ book.title }}</li>
+    <ul class="tabs">
+        <li v-bind:class="{ selected: tab==='index' }"><a href="#" v-on:click="goTo('/index')">Greets</a></li>
+        <li v-bind:class="{ selected: tab==='books' }"><a href="#" v-on:click="goTo('/index/books')">Books</a></li>
     </ul>
+    <div class="tab" v-if="tab==='index'">
+        <p>Hello world, {{ greet }}</p>
+        <input type="text" v-model="greet">
+    </div>
+    <div class="tab" v-if="tab==='books'">
+        <p>
+            <label for="author">Author</label>
+            <input type="text" id="author" v-model="newBook.author">
+        </p>
+        <p>
+            <label for="title">Title</label>
+            <input type="text" id="title" v-model="newBook.title">
+        </p>
+        <p>
+            <button v-on:click="addBook">Add</button>
+        </p>
+        <p class="error" v-if="showError">Please provide some data.</p>
+
+        <ul>
+            <li v-for="book in books"><em>{{ book. author }}</em> {{ book.title }}</li>
+        </ul>
+    </div>
 </div>
 
 <script>
@@ -40,6 +47,7 @@
         data: {
             greet: '#TechTalkSE',
             showError: false,
+            tab: 'index',
             newBook: {
                 author: '',
                 title: ''
@@ -67,10 +75,15 @@
                 }
             },
             goToIndex: function() {
+                this.tab = 'index';
                 console.log('index');
             },
             goToBooks: function() {
+                this.tab = 'books';
                 console.log('books');
+            },
+            goTo: function(route) {
+                page(route);
             }
         }
     });
