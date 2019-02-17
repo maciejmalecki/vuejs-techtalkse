@@ -65,9 +65,19 @@
                 } else {
                     this.showError = true;
                 }
+            },
+            goToIndex: function() {
+                console.log('index');
+            },
+            goToBooks: function() {
+                console.log('books');
             }
         }
     });
+
+    page('/index', app.goToIndex);
+    page('/index/books', app.goToBooks);
+    page();
 </script>
 </body>
 </html>
